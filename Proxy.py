@@ -73,6 +73,7 @@ while True:
     """May need to add debugging? if message is not bytes or empty clsoe connection?"""
     message_bytes = clientSocket.recv(BUFFER_SIZE)
     # ~~~~ END CODE INSERT ~~~~
+
     message = message_bytes.decode('utf-8')
     print('Received request:')
     print('< ' + message)
@@ -124,6 +125,7 @@ while True:
         # ProxyServer finds a cache hit
         # Send back response to client 
         # ~~~~ INSERT CODE ~~~~
+        clientSocket.send(''.join(cacheData).encode())
         # ~~~~ END CODE INSERT ~~~~
         cacheFile.close()
         print('Sent to the client:')
