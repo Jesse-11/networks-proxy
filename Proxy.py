@@ -156,6 +156,8 @@ while True:
             # originServerRequest is the first line in the request and
             # originServerRequestHeader is the second line in the request
             # ~~~~ INSERT CODE ~~~~
+            originServerRequest = method + ' ' + resource + ' ' + "HTTP/1.1"
+            originServerRequestHeader = message.split('\r\n', 1)[1]
             # ~~~~ END CODE INSERT ~~~~
 
             # Construct the request to send to the origin server
@@ -176,10 +178,17 @@ while True:
 
             # Get the response from the origin server
             # ~~~~ INSERT CODE ~~~~
+            origin_response = ""
+            while True:
+                data = originServerSocket.recv(BUFFER_SIZE)
+                if not data:
+                    break
+                origin_response += data
             # ~~~~ END CODE INSERT ~~~~
 
             # Send the response to the client
             # ~~~~ INSERT CODE ~~~~
+            clientSocket.send(origin_response)
             # ~~~~ END CODE INSERT ~~~~
 
             # Create a new file in the cache for the requested file.
@@ -191,6 +200,7 @@ while True:
 
             # Save origin server response in the cache file
             # ~~~~ INSERT CODE ~~~~
+            cacheFile.write(origin_response)
             # ~~~~ END CODE INSERT ~~~~
             cacheFile.close()
             print('cache file closed')
