@@ -45,7 +45,7 @@ try:
     # Listen on the server socket
     # ~~~~ INSERT CODE ~~~~
     """May need to change the number of queued connections"""	
-    serverSocket.listen(3)
+    serverSocket.listen(1)
     # ~~~~ END CODE INSERT ~~~~
     print('Listening to socket')
 except:
