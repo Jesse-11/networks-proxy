@@ -33,7 +33,7 @@ except:
 try:
     # Bind the the server socket to a host and port
     # ~~~~ INSERT CODE ~~~~
-    serverSocket.biond((proxyHost, proxyPort))
+    serverSocket.bind((proxyHost, proxyPort))
     # ~~~~ END CODE INSERT ~~~~
 
     print('Port is bound')
@@ -60,6 +60,7 @@ while True:
     # Accept connection from client and store in the clientSocket
     try:
         # ~~~~ INSERT CODE ~~~~
+        clientSocket, addr = serverSocket.accept()
         # ~~~~ END CODE INSERT ~~~~
         print('Received a connection')
     except:
