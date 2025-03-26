@@ -18,7 +18,6 @@ proxyPort = int(args.port)
 
 # Create a server socket, bind it to a port and start listening
 try:
-
     # Create a server socket
     # ~~~~ INSERT CODE ~~~~
     # Creata a TCP socket
@@ -26,21 +25,16 @@ try:
     serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # ~~~~ END CODE INSERT ~~~~
 
-
-    
     print('Created socket')
 except:
     print('Failed to create socket')
     sys.exit()
 
 try:
-
     # Bind the the server socket to a host and port
     # ~~~~ INSERT CODE ~~~~
     serverSocket.biond((proxyHost, proxyPort))
     # ~~~~ END CODE INSERT ~~~~
-
-
 
     print('Port is bound')
 except:
@@ -50,6 +44,8 @@ except:
 try:
     # Listen on the server socket
     # ~~~~ INSERT CODE ~~~~
+    """May need to change the number of queued connections"""	
+    serverSocket.listen(3)
     # ~~~~ END CODE INSERT ~~~~
     print('Listening to socket')
 except:
