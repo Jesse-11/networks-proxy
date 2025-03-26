@@ -156,8 +156,8 @@ while True:
             # originServerRequest is the first line in the request and
             # originServerRequestHeader is the second line in the request
             # ~~~~ INSERT CODE ~~~~
-            originServerRequest = method + ' ' + resource + ' ' + "HTTP/1.1"
-            originServerRequestHeader = message.split('\r\n', 1)[1]
+            originServerRequest = f"GET {resource} HTTP/1.1"
+            originServerRequestHeader = F"Host: {hostname}"
             # ~~~~ END CODE INSERT ~~~~
 
             # Construct the request to send to the origin server
