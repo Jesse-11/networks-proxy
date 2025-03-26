@@ -70,6 +70,8 @@ while True:
     # Get HTTP request from client
     # and store it in the variable: message_bytes
     # ~~~~ INSERT CODE ~~~~
+    """May need to add debugging? if message is not bytes or empty clsoe connection?"""
+    message_bytes = clientSocket.recv(BUFFER_SIZE)
     # ~~~~ END CODE INSERT ~~~~
     message = message_bytes.decode('utf-8')
     print('Received request:')
