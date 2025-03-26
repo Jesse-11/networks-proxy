@@ -178,7 +178,7 @@ while True:
 
             # Get the response from the origin server
             # ~~~~ INSERT CODE ~~~~
-            origin_response = ""
+            origin_response = b""
             while True:
                 data = originServerSocket.recv(BUFFER_SIZE)
                 if not data:
